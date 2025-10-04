@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffcc;  /* Light yellow, easy to see */
+    margin: 20px;
+}
+
+h1 {
+    color: #ff6600; /* Bright orange */
+    text-align: center;
+}
+
+ul li a {
+    color: #0066cc;  /* Blue links */
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #cc0000; /* Red on hover */
+}
