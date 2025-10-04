@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post List</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static "style.css" %}">
+    <title>My Blog</title>
 </head>
 <body>
-    <h1>All Posts</h1>
+    <h1>All Blog Posts</h1>
     <ul>
         {% for post in posts %}
             <li>
-                <a href="{% url 'app6:post_detail' post.pk %}">
-                    {# dynamically generating url #}
-                    {# uses namespace (app6) + URL name (post_detail) from urls.py #}
-                    {# If you don’t define app_name = 'app6' in your app-level urls.py, Django won’t recognize the namespace #}
-                    {{ post.title }}
-                </a>
-                    -- {{ post.author }} ({{ post.created_at }})
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.body }}</p>
+                <small>By {{ post.author }} on {{ post.created_at }}</small>
             </li>
         {% empty %}
-            <li>No posts yet</li>
+            <li>No posts available.</li>
         {% endfor %}
     </ul>
 </body>

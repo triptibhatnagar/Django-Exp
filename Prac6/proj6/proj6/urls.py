@@ -15,9 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from app6 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('app6/', include('app6.urls', namespace='app6'))
+    path('app6/', views.post_list, name="post_list"), # connect view directly
 ]
