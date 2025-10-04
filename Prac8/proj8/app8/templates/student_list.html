@@ -14,7 +14,7 @@
                 <a href="{% url 'edit_student' student.pk %}">Edit</a>
                 <a href="{% url 'delete_student' student.pk %}">Delete</a>
             </li>
-        {% empty %}
+        {% empty %}.
             <li>No students found.</li>
         {% endfor %}
     </ul>

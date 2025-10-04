@@ -9,10 +9,10 @@ def list_students(request):
 
 # Add new student
 def add_student(request):
-    if request.method == "POST":
-        form = StudentForm(request.POST)
+    if request.method == "POST": # POST: form is submitted
+        form = StudentForm(request.POST) # form ko user ke input se fill karti hai
         if form.is_valid():
-            form.save()
+            form.save() # save in db
             return redirect('list_students')
     else:
         form = StudentForm()
@@ -31,9 +31,15 @@ def edit_student(request, pk):
     return render(request, 'student_form.html', {'form': form})
 
 # Delete student
+# Agar POST request hai → matlab user ne confirm delete click kiya → record delete kar deta hai
+# Agar GET request hai → confirmation page show karta hai (“Are you sure?”)
+
 def delete_student(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == "POST":
         student.delete()
         return redirect('list_students')
     return render(request, 'student_confirm_delete.html', {'student': student})
+
+# render - show page, url remains same
+# redirect - move to another page, url changes
