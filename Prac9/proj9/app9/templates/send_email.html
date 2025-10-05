@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Email</title>
+</head>
+<body>
+    <h1>Send Email to Registered Users</h1>
+    {% if success %}
+        <p style="color:green;">✅ Email sent successfully!</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send Email</button>
+    </form>
+</body>
+</html>
